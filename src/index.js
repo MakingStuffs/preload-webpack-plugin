@@ -125,7 +125,11 @@ class PreloadPlugin {
               this.constructor.name,
               (htmlPluginData, callback) => {
                 try {
-                  callback(null, this.addLinks(compilation, htmlPluginData));
+                  if(/(<head>|<body>)/.test(htmlPluginData.html)) {
+                    callback(null, this.addLinks(compilation, htmlPluginData));
+                  } else {
+                    callback(null)
+                  };
                 } catch (error) {
                   callback(error);
                 }
