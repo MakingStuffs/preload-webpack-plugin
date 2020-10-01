@@ -27,7 +27,6 @@
     "test": "jasmine test/unit/* test/webpack*/index.js",
     "coverage": "nyc npm run test",
     "clean": "rimraf build",
-    "prepare": "npm install && npm run build",
     "build": "npm run clean && babel --out-dir=build src",
     "publish-stable": "npm run lint && npm run test && npm run build && npm publish",
     "publish-next": "npm run lint && npm run test && npm run build && npm publish --tag next"
